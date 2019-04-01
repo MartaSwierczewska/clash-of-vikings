@@ -27,7 +27,7 @@ document.addEventListener("DOMContentLoaded", function () {
         userScore++;
         userScore_span.innerHTML = userScore;
         computerScore_span.innerHTML = computerScore;
-        result_p.innerHTML = `${convertToWord(userChoice)} beats ${convertToWord(computerChoice)} - You win! :)`;
+        result_p.innerHTML = `${convertToWord(userChoice)} beats ${convertToWord(computerChoice)} - You win! 🔥`;
         document.getElementById(userChoice).classList.add('green-glow');
         setTimeout(() => userChoice_div.classList.remove('green-glow'), 300);
     }
@@ -37,7 +37,7 @@ document.addEventListener("DOMContentLoaded", function () {
         computerScore++;
         userScore_span.innerHTML = userScore;
         computerScore_span.innerHTML = computerScore;
-        result_p.innerHTML = `${convertToWord(userChoice)} loses to ${convertToWord(computerChoice)} - You lost! :(`
+        result_p.innerHTML = `${convertToWord(userChoice)} loses to ${convertToWord(computerChoice)} - You lost! 💩`
         document.getElementById(userChoice).classList.add('red-glow');
         setTimeout(() => userChoice_div.classList.remove('red-glow'), 300);
     }
@@ -46,9 +46,27 @@ document.addEventListener("DOMContentLoaded", function () {
         const smallUserWord = "user".fontsize(3).sub();
         const smallComputerWord = "computer".fontsize(3).sub();
         const userChoice_div = document.getElementById(userChoice);
-        result_p.innerHTML = `${convertToWord(userChoice)} equals ${convertToWord(computerChoice)} - It's a draw!`
+        result_p.innerHTML = `${convertToWord(userChoice)} equals ${convertToWord(computerChoice)} - It's a draw! 🙃`
         document.getElementById(userChoice).classList.add('gray-glow');
         setTimeout(() => userChoice_div.classList.remove('gray-glow'), 300);
+    }
+
+    function playAgain(){
+        userScore=0;
+        computerScore=0;
+    }
+
+    function theEnd(){
+        var scoreBoard = document.querySelector(".score-board");
+        var result = document.querySelector(".result");
+        var choices = document.querySelector(".choices");
+        var actionMessage = document.querySelector("#action-message");
+        var winningMessage = document.querySelector("#winning-message");
+        scoreBoard.style.display = "none";
+        result.style.display = "none";
+        choices.style.display="none";
+        actionMessage.style.display="none";
+        winningMessage.style.display="block";
     }
 
     function game(userChoice){
@@ -69,6 +87,11 @@ document.addEventListener("DOMContentLoaded", function () {
             case "w3w3":
                 draw(userChoice, computerChoice);
                 break;
+        }
+        if(userScore==10){
+            theEnd();
+        } else if(computerScore==10){
+            playAgain();
         }
     }
 
