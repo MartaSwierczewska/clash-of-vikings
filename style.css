@@ -68,20 +68,23 @@ header > h1{
 
 .choices{
     text-align: center;
-    margin-top:50px;
+    margin-top:40px;
 }
 
 .choice{
-    border: 2px solid white;
-    border-radius:50%;
     padding:10px;
     margin: 0 15px;
     display: inline-block;
 }
 
 .choice > img{
-    width:100px;
-    height: auto;
+    width:120px;
+    height: 100px;
+}
+
+.choice > p{
+    color:white;
+    font-family: Asap, sans-serif;
 }
 
 #action-message{
