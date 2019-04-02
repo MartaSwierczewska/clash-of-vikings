@@ -10,9 +10,15 @@ const w3_div = document.getElementById("w3");
 
 document.addEventListener("DOMContentLoaded", function () {
 
+    function getRandom(){
+        let date = new Date();
+        let time = date.getTime();
+        return time;
+    }
+
     function getComputerChoice(){
         const choices =['w1','w2','w3'];
-        const randomNumber = Math.floor(Math.random()*3);
+        const randomNumber = Math.floor(getRandom()%3);
         return choices[randomNumber];
     }
 
@@ -54,6 +60,7 @@ document.addEventListener("DOMContentLoaded", function () {
     function playAgain(){
         userScore=0;
         computerScore=0;
+        result_p.innerHTML='Ups... You lost, try again!';
     }
 
     function theEnd(){
